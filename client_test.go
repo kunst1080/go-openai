@@ -133,7 +133,7 @@ func TestHandleErrorResp(t *testing.T) {
 					}
 				}`,
 			)),
-			expected: "error, status code: 401, message: Access denied due to Virtual Network/Firewall rules.",
+			expected: "error, status code: 401, message: Access denied due to Virtual Network/Firewall rules., code: AccessDenied",
 		},
 		{
 			name:     "503 Model Overloaded",

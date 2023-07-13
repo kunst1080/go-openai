@@ -27,7 +27,11 @@ type ErrorResponse struct {
 
 func (e *APIError) Error() string {
 	if e.HTTPStatusCode > 0 {
-		return fmt.Sprintf("error, status code: %d, message: %s", e.HTTPStatusCode, e.Message)
+		if (e.Code == 0) {
+			return fmt.Sprintf("error, status code: %d, message: %s", e.HTTPStatusCode, e.Message)
+		} else {
+			return fmt.Sprintf("error, status code: %d, message: %s, code: %s", e.HTTPStatusCode, e.Message, e.Code)
+		}
 	}
 
 	return e.Message
